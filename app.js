@@ -19,15 +19,31 @@ app.config(function($routeProvider) {
 
 });
 
-app.controller('homeController', ['$scope', function($scope) {
+//Services:
 
-    console.log('Home Controller');
+app.service('cityService', function() {
+
+    this.city = 'Ex. London';
+
+});
+
+
+//Controllers:
+
+app.controller('homeController', ['$scope', 'cityService', function($scope, cityService) {
+
+    $scope.city = cityService.city;
+
+    $scope.$watch('city', function() {
+        cityService.city = $scope.city;
+    })
 
 }]);
 
-app.controller('forecastController', ['$scope', function($scope) {
+app.controller('forecastController', ['$scope', 'cityService', function($scope, cityService) {
 
-    console.log('Forecast Controller');
+    $scope.city = cityService.city;
 
 }]);
+
 

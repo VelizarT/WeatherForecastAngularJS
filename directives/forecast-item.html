@@ -1,0 +1,9 @@
+<div class="list-group">
+    <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">{{ formattedDate({ datetime: dailyForecastObject.dt }) }}</h4>
+      <p class="list-group-item-text">
+        {{ toCelsius({ temp: dailyForecastObject.main.temp }) }}
+        {{ dailyForecastObject.weather.description }}
+      </p>
+    </a>
+</div>

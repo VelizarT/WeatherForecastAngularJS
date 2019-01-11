@@ -1,1 +1,9 @@
-<p>This is my forecast for {{ city }}</p>
+<h3>This is my forecast for {{ city }}</h3>
+
+<forecast-item
+    ng-repeat="dailyForecast in weatherData"
+    formatted-date="formattedDate(datetime)"
+    to-celsius="toCelsius(temp)"
+    daily-forecast-object="dailyForecast">
+</forecast-item>
+
